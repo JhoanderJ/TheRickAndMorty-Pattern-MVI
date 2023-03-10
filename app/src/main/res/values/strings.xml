@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">TheRickAndMorty-Pattern-MVI</string>
+    <string name="error_empty_data">Empty data</string>
+    <string name="error_server_error">Server error</string>
+    <string name="error_exception">Error loading data</string>
+    <string name="name_toolbar">The Rick And Morty</string>
+    <string name="text_with_bullet">\u2022</string>
+    <string name="label_specie">Specie:</string>
+    <string name="label_gender">Gender:</string>
+</resources>
