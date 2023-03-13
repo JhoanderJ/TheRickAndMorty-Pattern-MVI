@@ -7,7 +7,6 @@ import retrofit2.http.GET
 const val PATH_CHARACTER = "character"
 
 interface ApiService {
-
     @GET(PATH_CHARACTER)
     suspend fun getAllPersons(): Response<Cartoon>
 }

@@ -13,17 +13,6 @@ import java.util.concurrent.TimeUnit
 
 val appModule = module {
 
-    single { Gson() }
-
-    single {
-
-        OkHttpClient.Builder()
-            .readTimeout(30, TimeUnit.SECONDS)
-            .connectTimeout(30, TimeUnit.SECONDS)
-            .writeTimeout(30, TimeUnit.SECONDS)
-            .build()
-    }
-
     single {
 
         val okHttpClient = OkHttpClient.Builder()
