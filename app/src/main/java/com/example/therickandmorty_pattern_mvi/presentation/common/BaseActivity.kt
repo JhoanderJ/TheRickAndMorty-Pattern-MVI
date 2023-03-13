@@ -10,7 +10,7 @@ abstract class BaseActivity<
         ACTION : ViewAction,
         STATE : ViewState,
         ViewModel : BaseViewModel<INTENT, ACTION, STATE>>(private val classModel: Class<ViewModel>) :
-    RootBaseActivity(), IViewRenderer<STATE> {
+    RootBaseActivity() {
 
     private lateinit var viewState: STATE
     private val viewModel : ViewModel by lazy {
@@ -22,13 +22,11 @@ abstract class BaseActivity<
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
-        configureKoin()
         setContentView(getLayoutId())
         initUserInterface()
-        viewModel.state.observe(this) {
-            viewState = it
-            render(it)
-        }
+
+        // TODO OBSERVER STATE WITH VIEWMODEL
+
         initDATA()
         initEVENT()
     }
@@ -38,7 +36,8 @@ abstract class BaseActivity<
     abstract fun initUserInterface()
     abstract fun initDATA()
     abstract fun initEVENT()
-    fun dispatchIntent(intent: INTENT) {
+
+    abstract fun dispatch(intent: INTENT){
         viewModel.dispatchIntent(intent)
     }
 }

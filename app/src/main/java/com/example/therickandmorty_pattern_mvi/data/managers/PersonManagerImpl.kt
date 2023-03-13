@@ -8,7 +8,6 @@ import com.example.therickandmorty_pattern_mvi.domain.entities.toModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
-
 class PersonManagerImpl(private val api: ApiService) : PersonManager {
     override fun getAllPerson(): Flow<Result<List<Person>>> = flow {
         api.getAllPersons().run {

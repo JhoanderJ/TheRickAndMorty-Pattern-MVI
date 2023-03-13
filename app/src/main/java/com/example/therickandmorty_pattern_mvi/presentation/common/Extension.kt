@@ -7,22 +7,12 @@ import com.example.therickandmorty_pattern_mvi.R
 import com.example.therickandmorty_pattern_mvi.data.common.ManageErrors
 import kotlin.reflect.KClass
 
-/**
- * Created by Rim Gazzah on 8/31/20.
- **/
 fun <T : ViewModel> RootBaseActivity.viewModelProvider(
     factory: ViewModelProvider.Factory,
     model: KClass<T>
 ): T {
-    return ViewModelProvider(this, factory).get(model.java)
+    return ViewModelProvider(this, factory)[model.java]
 }
-
-fun Boolean.runIfTrue(block: () -> Unit) {
-    if (this) {
-        block()
-    }
-}
-
 fun ManageErrors.getMessage(context: Context): String {
     return when (this) {
         is ManageErrors.ErrorData -> context.getString(R.string.error_empty_data)
